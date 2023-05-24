@@ -1,11 +1,9 @@
-/// <reference types="Cypress" />
+describe("Login", () => {
+  it("successfully", () => {
+    const user = Cypress.env("user_name")
+    const password = Cypress.env("user_password")
+    const options = { cacheSession: false }
 
-describe('login', () => {
-
-  it('successfully login', () =>{
-
-   cy.login()
-
+    cy.login(user, password, options)
   })
-
 })
