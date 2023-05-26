@@ -6,6 +6,7 @@ describe('Successful creation of a project',() =>{
 
     beforeEach(()=>{
 
+        cy.api_deleteProjects()
         cy.login()
 
     })
