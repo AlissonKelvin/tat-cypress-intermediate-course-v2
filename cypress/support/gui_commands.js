@@ -50,3 +50,17 @@ Cypress.Commands.add("gui_createProject", (project) => {
 
   cy.contains("input", "Create project").click();
 });
+
+Cypress.Commands.add('gui_createIssue',issue =>{
+
+  cy.get('.project-name').first().click()
+  cy.get('.qa-issues-item').click()
+
+  cy.get('#new_issue_link').click()
+
+  cy.get('#issue_title').type(issue.name, {delay:0})
+  cy.get('#issue_description').type(issue.description, {delay:0})
+
+  cy.contains('input', 'Submit issue').should('be.enabled').click()
+
+})
