@@ -1,0 +1,6 @@
+Cypress.Commands.add('cloneViaSSH', project => {
+    const domain = Cypress.config('baseUrl').replace('http://', '')
+
+    // The command cy.exec execute a CLI(Command Line Interface) without you need to write on terminal 
+    cy.exec(`cd cypress/downloads/ && git clone git@${domain}:${Cypress.env('user_name')}/${project.name}.git`, {failOnNonZeroExit: false})
+  })
